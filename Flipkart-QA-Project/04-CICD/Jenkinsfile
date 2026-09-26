@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'
+        jdk 'JDK11'
+    }
+
+    options {
+        timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '15'))
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('UI Automation - Selenium/TestNG') {
+            steps {
+                dir('02-Automation-Selenium-TestNG') {
+                    sh 'mvn clean test -Dheadless=true'
+                }
+            }
+            post {
+                always {
+                    junit '02-Automation-Selenium-TestNG/target/surefire-reports/*.xml'
+                    archiveArtifacts artifacts: '02-Automation-Selenium-TestNG/screenshots/**', allowEmptyArchive: true
+                    archiveArtifacts artifacts: '02-Automation-Selenium-TestNG/reports/**', allowEmptyArchive: true
+                    archiveArtifacts artifacts: '02-Automation-Selenium-TestNG/logs/**', allowEmptyArchive: true
+                }
+            }
+        }
+
+        stage('API Automation - REST Assured') {
+            steps {
+                dir('03-API-Testing') {
+                    sh 'mvn clean test'
+                }
+            }
+            post {
+                always {
+                    junit '03-API-Testing/target/surefire-reports/*.xml'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'All Flipkart QA suites passed.'
+        }
+        failure {
+            echo 'One or more test suites failed — check JUnit reports above.'
+        }
+    }
+}

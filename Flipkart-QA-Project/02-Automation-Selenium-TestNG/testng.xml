@@ -1,0 +1,74 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Flipkart UI Automation Suite" verbose="1" parallel="none">
+
+    <listeners>
+        <listener class-name="listeners.ExtentTestListener"/>
+    </listeners>
+
+    <test name="Homepage">
+        <classes>
+            <class name="tests.HomePageTests"/>
+        </classes>
+    </test>
+
+    <test name="Search">
+        <classes>
+            <class name="tests.SearchTests"/>
+        </classes>
+    </test>
+
+    <test name="Sort">
+        <classes>
+            <class name="tests.SortTests"/>
+        </classes>
+    </test>
+
+    <test name="Filter">
+        <classes>
+            <class name="tests.FilterTests"/>
+        </classes>
+    </test>
+
+    <test name="ProductDetail">
+        <classes>
+            <class name="tests.ProductDetailTests"/>
+        </classes>
+    </test>
+
+    <test name="Cart">
+        <classes>
+            <class name="tests.CartTests"/>
+        </classes>
+    </test>
+
+    <test name="LoginValidation">
+        <classes>
+            <class name="tests.LoginValidationTests"/>
+        </classes>
+    </test>
+
+    <test name="DataDrivenSearch">
+        <classes>
+            <class name="tests.DataDrivenSearchTests"/>
+        </classes>
+    </test>
+
+    <test name="Navigation-Hover-Scroll">
+        <classes>
+            <class name="tests.NavigationTests"/>
+        </classes>
+    </test>
+
+    <test name="AlertHandling">
+        <classes>
+            <class name="tests.AlertHandlingTests"/>
+        </classes>
+    </test>
+
+    <test name="Dropdown-Collections">
+        <classes>
+            <class name="tests.DropdownAndCollectionsTests"/>
+        </classes>
+    </test>
+
+</suite>
