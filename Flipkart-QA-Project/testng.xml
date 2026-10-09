@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Simple Books API Suite">
+    <test name="REST Assured - Simple Books API">
+        <classes>
+            <class name="com.simplebooks.tests.GetTests"/>
+            <class name="com.simplebooks.tests.PostTests"/>
+            <class name="com.simplebooks.tests.PutPatchTests"/>
+            <class name="com.simplebooks.tests.DeleteTests"/>
+        </classes>
+    </test>
+</suite>
