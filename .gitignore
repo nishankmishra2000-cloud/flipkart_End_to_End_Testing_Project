@@ -1,0 +1,30 @@
+# Maven
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Logs / reports
+*.log
+test-output/
+surefire-reports/
+extent-report/
+02-Automation-Selenium-TestNG/logs/
+02-Automation-Selenium-TestNG/reports/*.html
+02-Automation-Selenium-TestNG/screenshots/failures/*.png
+!02-Automation-Selenium-TestNG/reports/.gitkeep
+!02-Automation-Selenium-TestNG/screenshots/failures/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Screenshots captured at runtime (keep placeholders only, not real captures in repo history if large)
+05-Supporting/screenshots/**/*.png
+!05-Supporting/screenshots/**/README.md
